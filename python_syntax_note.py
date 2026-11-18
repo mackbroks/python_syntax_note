@@ -121,7 +121,6 @@ Type "help", "copyright", "credits" or "license()" for more information
     # `s.upper()` `Returns a copy of string s converted to uppercase`
     # `s.format(a,b,c)` ``Returns a string with empty {} filled by method parameters, in order. e.g. a then b then c {}{}{}`
 
-
     # `s.find(target) `The index of the FIRST OCCURENCE of substring target in string s`
 
 #### Lists ####
@@ -151,6 +150,7 @@ Type "help", "copyright", "credits" or "license()" for more information
             # `list.index(element)` `RETURNS the index of the FIRST OCCURENCE of element in list`
             # `list.insert(index, element)` `Inserts element before targeting index`
             # `list.pop()` `Removes and returns LAST element in the list`
+                # `list.pop(index)` `Removes and returns element at <index>`
             # `list.remove(element)` `Removes the FIRST OCCURENCE of element in the list`
             # `list.reverse()` `Reverses the order of elements in the list`
             # `list.sort()` `Sorts the list` 
@@ -269,7 +269,6 @@ Type "help", "copyright", "credits" or "license()" for more information
                 # if <condition>
                     # <pass> (Does nothing, useful for when code hasn't been implemented)
 
-
 #### Files ####
 
     ## File mode
@@ -379,7 +378,7 @@ Type "help", "copyright", "credits" or "license()" for more information
 
     # Set Methods
         
-        # `Add an item to a set` `<set_assignvar>.add(<item>)`
+        # `Add an item to a set` `<set_assignvar>.add(<item>)` # Only takes one argument
         # `Remove an item from a set` `<set_assignvar>.remove(<item>)`
         # `Empty a set` `<set_assignvar>.clear()`
 
@@ -387,7 +386,7 @@ Type "help", "copyright", "credits" or "license()" for more information
 
     # What most computer programs use to generate numbers - fake - pseudorandom
 
-    # start with <import random>
+    # start with <import random> or from <random> import <method>
 
     # `A random integer between two numbers` `<random>.randrange(start, up-to-stop)`
         # e.g. random.range(1,7)
@@ -445,7 +444,7 @@ Type "help", "copyright", "credits" or "license()" for more information
     # Error objects are called exceptions
 
     # Try/Except
-    
+
             # try (executed first)
                 # <indented code block 1>
             # except: # (executed only if an exception is raised while try block runs) # (if the try code works, the except block is ignored)
@@ -525,172 +524,163 @@ Type "help", "copyright", "credits" or "license()" for more information
             # def <class method 2>(self, arg21, arg22, ...):
                 # <implementation of class method 2>
 
-#### BOUND VERSUS UNBOUND FOR CLASSES!
 
+#### Custom Classes and Object Oriented Principles ####
 
-### new
-
-# Namespaces
-
-    # Error objects are called exceptions
-        # 
-
-
-    # Try/Except
-
-        # try (executed first)
-            # <indented code block 1>
-        # except: # (executed only if an exception is raised while try block runs) # (if the try code works, the except block is ignored)
-            # <indented code block 2>
-        # <non-indented statement>
-
-        # idented code block is attempted first
-        # if it goes through without exceptions: code block 2 is ignored
-        # if there is an exception, wherever it is excepted, remaining statements do not run
-        # then, indented code block runs to completion without a new exception raised
-
-    # Catching Specific Exceptions
-
-        # try:
-            # <indented code block 1>
-        # except <TypeError1>: e.g. ValueError # executed only if the specific TypeError occurs, in this case a ValueError
-            # <indented code block 2>
-        # except <TypeError(n)>:
-            # <indented code block (n)>
-        # except: # executed if exception other than specific errors
-            # <indented code block>
-        # <non-indented code block>
-
-    # Classes as Namespaces
-        # Behind the scenes, a Python class is essentially a namespace e.g. list class
-        # The class <list> is in a namespace called <list>, which contains methods and operators of the <list> class
-
-        # e.g. lst = [1,2,3]
-        # When execute: lst.sort()
-        # Python first translates the statement to: list.sort(lst)
-        # lst here is just an instance of the list class
-
-        # Generally
-        # <instance><.method(arg1,arg2,...)>33
-
-        # <class><.method(instance, arg1, arg2,...)>
-
-        # More e.g.
-        # lst.append(9) on lst 9 == list.append(lst,9)
-        # d.keys() == dict.keys(d)3
-
-        # Every implementation of EVERY class method must include an additional input argument, correspond to the instance calling the method)
-
-    # Implementing classes and OOP
-        # 
-
-
-# Class is a user-defined data type
-
-# help(<object>) - returns a glossary of object's methods
-
-# In OOP: parentheses/() instantiates a new instance/object/calls in memory
-# Parentheses() calls a new object into instantiation and memory, saving to a variable determines instance-level memory or class-level memory
-
-# Defining a Class Object by Composition - class <class_name> or class <class_name>():
-    # no attributes or methods defined
-
-
-# Defining a Class Object by Inheritance - class <class_name>(<parent_class_name>):
-    # <class_name> inherits attributes and methods from <parent_class_name>
-
-# e.g. class dog: or class dog(str): or class dog(object):
-
-# Inspect a class object - <class_name> : returns data type, origin, and which class <class '__definitionOrigin__.<class_name>'> 
-    # <class ...> : <what data type the class is>
-    # <__dunderscore__> : <__where the class is defined__>
-    # <.class_name>: <the exact recalled name and proof of definiton by that name's existence>
-
-
-# Create an unsaved instance of a class - <classname>() : construction call, instantiates/creates an instance of the <class_name> data type, not stored in memory
-    # without being assigned to a variable `ivie = dog()`, instance created but not saved
-
-
-# Create an instance of a class - <var> = <class_name>() : instantiates/creates instance of <class_name> class and assigns to variable <var>
-    # <ivie = dog()> : instantiates/creates instance of <dog> class and assigns to variable <ivie>
-    # new instance of <dog> class is created and assigned to variable <ivie>
-    # think of it like a soul or spirit assigned to a now named and defined entity in computer memory
-    # each time this is executed it creates an instance of <dog> class and assigns it to variable <ivie> at a new address in memory, overwriting any duplicates
-    # Saying <ivie> is a <Dog()> object
-
-
-# Create an alias for a class - <var> = <class_name> : <var> now points to the <class_name> object, can even be used to create new instances of the <class_name> class, like an alias
-    # e.g. <canine> = <dog>: <canine> now points to the <dog> class object, can be used to create new instances of the <dog> class
-
-
-# Create a function method for a class
-    # def <method_name>(<which instance is calling the method>, <args/params>, <args/params>, ...)
-        # class Point()
-        #   def function(self, xcoord):
-        #       self.x = xcoord
-
-
-# Create a variable and associated value inside of a class
-    # <class_name>.<value_variable> = <value>
-
-# Returns a class's namespace, dictionary of attribute and method names and mappings
-    # <class_name>.__dict__
-
-
-# Assign a variable and value inside of an instance
-    # <instance_name>.<variable> = <value>
-    # e.g. <point.x = 3> <ivie.color = 'white'> 
-    #                                   No parentheses because it would instantiate an unsaved (no variable) instance of the class, basically pointless, would create the instance, assign the value, then destroy the instance
-
-# Assign a variable and value inside of a class
-    # <class_name>.<variable> = <value>
-    #                                   No parentheses because it would instantiate an unsaved (no variable) instance of the class, basically pointless, would create the instance, assign the value, then destroy the instance
-
-# Use a defined class method on an instance - <instance_name>.<method_name>(<parameters>) : <Class_name>.<method_name>(<instance>, <parameters>)
-    # <instance_name>.<method_name>(<parameters>) 
-    # Python translation: <Class_name>.<method_name>(<instance>, <parameters>)
-
-    # Notice how when bounding by the instance name you do not need to reinstate the instance, it automatically is recognized as the referenced instance
-
-# Every method needs a (self) signature, otherwise it won't know which instance to point to
-
-# Dunderscore Instantiation __init__
-    # Allows class constructor use/instance creation with input arguments, requires input arguments
-    # <def __init__(self, parameter, parameter...)>
+    # Class is a user-defined data type
     
-    # <def __init__(self, parameter, parameter...)>
-    #   self.<var_assign> = <parameter>
-    #   self.<var_assign> = <parameter2>
+    # Bound is accessed through an instance, unbound is apart of the class
+    # Bound automatically passes self, unbound manually needs self addressed
+    # Bound are methods, unbound are functions
+    # Bound is for instances of a class, unbound is for the class
 
-    # Instantiate with default inputs - default constructors
-        # <def __init__(self, param1 = 0, param2 = '', param3 = [])
-        #   self.<var_assign> = <param1>
-        #   self.<var_assign> = <param2>
-        #   self.<var_assign> = <param3>
+    # help(<object>) - returns a glossary of object's methods, attributes
+
+    # In OOP: parentheses/() instantiates a new instance/object/calls in memory
+    # Parentheses() calls a new object into instantiation and memory, saving to a variable determines instance-level memory or class-level memory
+
+    # Every function/unbound/within class needs a (self) signature, otherwise it won't know which instance to point to
+
+    # Bound to Unbound translation:    
+    # point.setx(3)
+    # Python Translation: Point.setx(point,3)
+
+    # Class Objects
+
+    # Defining Class Objects
+
+        # It's like creating a blueprint for instances to be made in the image of
+
+        # Defining a Class Object by Composition - class <class_name> or class <class_name>():
+            # more preferable to do without parentheses, can confuse instantiation later and __init__
+            # no attributes or methods defined
 
 
-# Return a dictionary of variables for a instance - <instance_name><.__dict__>
-    # e.g. ivie.color = 'brown' -> ivie.__dict__ : {'color': 'brown'}
+        # Defining a Class Object by Inheritance - class <class_name>(<parent_class_name>):
+            # <class_name> inherits attributes and methods from <parent_class_name>
 
-# Return a dictionary of variables for a class - <class_name><.__dict__>
-    # e.g. class Dog:/class Dog(): -> Dog.__dict__
+        # e.g. class dog: or class dog(str): or class dog(object):
 
-# Return instance variable values - <instance>.<variable>
+    # Creating Instance Objects of a Class
 
-# Change instance variable - <instance>.<variable> = <new_value>
+        # Create an unsaved instance of a class - <classname>() : construction call, instantiates/creates an instance of the <class_name> data type, not stored in memory
+            # without being assigned to a variable `ivie = dog()`, instance created but not saved
 
-# Access class attribute from instance namespace
-    # <instance>.<method_name>
 
-# point.setx(3)
-# Python Translation: Point.setx(point,3)
+        # Create an instance of a class - <var> = <class_name>() : instantiates/creates instance of <class_name> class and assigns to variable <var>
+            # <ivie = dog()> : instantiates/creates instance of <dog> class and assigns to variable <ivie>
+            # new instance of <dog> class is created and assigned to variable <ivie>
+            # think of it like a soul or spirit assigned to a now named and defined entity in computer memory
+            # each time this is executed it creates an instance of <dog> class and assigns it to variable <ivie> at a new address in memory, overwriting any duplicates
+            # Saying <ivie> is a <Dog()> object
 
+    # Create a Function inside of a Class
+
+        # def <method_name>(<which instance is calling the method>, <args/params>, <args/params>, ...)
+            # class <class_name>:
+            #   def <function/method_name>(<self>, <params>...):
+            #       <self>.<var> = <param>
+            #       <other code blocks>
+            #       <bound to self>
+
+    # Create a variable and associated value inside of a class
+        # <class_name>.<value_variable> = <value>
+
+    # Assign a variable and value inside of a class
+        # <class_name>.<variable> = <value>
+        #                                   No parentheses because it would instantiate an unsaved (no variable) instance of the class, basically pointless, would create the instance, assign the value, then destroy the instance
+
+    # Modifying built-in Methods
+
+        # Dunderscore Instantiation __init__
+
+            # Instantiate without inputs:
+                # Allows class constructor use/instance creation with input arguments, requires input arguments
+                # What happens when an instance is created
+                # <def __init__(self, parameter, parameter...)>
+                
+                # <def __init__(self, parameter, parameter...)>
+                #   self.<var_assign> = <parameter>
+                #   self.<var_assign> = <parameter2>
+
+            # Instantiate with default inputs - default constructors
+                # <def __init__(self, param1 = 0, param2 = '', param3 = [])
+                #   self.<var_assign> = <param1>
+                #   self.<var_assign> = <param2>
+                #   self.<var_assign> = <param3>
+
+                # self.<var_assign> is an instance variable
+                # instance variables can be changed later on and are not restricted to the type they originated
+                    # vert.x = 1 -> vert.x = (1,0) : vert.x returns (1,0)
+
+        # Dunderscore String Representation __repr__
+            # __repr__ : repr() : is called when an object must be represented as a string
+            # Returns a canonical (unique representative/standardized) string representation of instance object
+
+            # To modify, overwrite inside of class
+                # class <ClassName>:... def <__repr__>(<self>):
+                                        #   return <f"desired print structure with {} where variables inserted}>
+
+        # Dunderscore Equality __eq__
+            # __eq__ : == : is called to evaluate if two objects are the same object
+                # e.g. point = Point(3,5) -> point == point : True
+            
+            # Sometimes it has to be modified to compare value equivalence instead of same literal object
+            # For Point it was rewritten as: def <__eq__><(self, param)>
+            #                                   return self.<var> == param.<var> and self.<var2> == param.<var2>
+            # The object (self) and the comparison (param) are not the same object but their associated variable values are the same object
+
+    # Return a dictionary of variables for a class - <class_name><.__dict__>
+        # e.g. class Dog:/class Dog(): -> Dog.__dict__
+
+
+    # Instance Objects of Class
+
+    # Assign a variable and value inside of an instance
+        # <instance_name>.<variable> = <value>
+        # e.g. <point.x = 3> <ivie.color = 'white'> 
+        #                                   No parentheses because it would instantiate an unsaved (no variable) instance of the class, basically pointless, would create the instance, assign the value, then destroy the instance
+
+    # Use a defined class method on an instance - <instance_name>.<method_name>(<parameters>) : <Class_name>.<method_name>(<instance>, <parameters>)
+        # <instance_name>.<method_name>(<parameters>) 
+        # Python translation: <Class_name>.<method_name>(<instance>, <parameters>)
+
+        # Notice how when bounding by the instance name you do not need to reinstate the instance, it automatically is recognized as the referenced instance
+
+    # Return a dictionary of variables for a instance - <instance_name><.__dict__>
+        # e.g. ivie.color = 'brown' -> ivie.__dict__ : {'color': 'brown'}
+
+    # Return instance variable values - <instance>.<variable>
+
+    # Change instance variable - <instance>.<variable> = <new_value>
+
+    # Access class function from instance namespace
+        # <instance>.<method_name>
+
+    # Misc.
+
+    # Inspect a class object - <class_name> : returns data type, origin, and which class <class '__definitionOrigin__.<class_name>'> 
+        # <class ...> : <what data type the class is>
+        # <__dunderscore__> : <__where the class is defined__>
+        # <.class_name>: <the exact recalled name and proof of definiton by that name's existence>
+
+    # Create an alias for a class - <var> = <class_name> : <var> now points to the <class_name> object, can even be used to create new instances of the <class_name> class, like an alias
+        # e.g. <canine> = <dog>: <canine> now points to the <dog> class object, can be used to create new instances of the <dog> class
+
+    # Returns a class's namespace, dictionary of attribute and method names and mappings
+        # <class_name>.__dict__
 
 
 # <class dog>
 # <dog = dog()>
-# creates an instance of dog class and names it dog, renders class object uncallable
+# creates an instance of dog class and names it dog
 
 # once created <ivie> lives at a specific address in mem, 
     # if <ivie> is assigned to another variable, e.g. <fido = ivie>, both variables point to the same instance of the <dog> class in memory
     # if <ivie> is assigned to a new instance of the <dog> class, e.g. <ivie = dog()>, the original instance of the <dog> class is still in memory, but <ivie> now points to a new instance of the <dog> class in memory
+
+# def <method_name>(<self>, <parameter(s) to passover)>)
+#   <self>.<parameter>
+
+## Designing New Container Classes
+    # 
